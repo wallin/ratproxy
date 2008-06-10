@@ -163,8 +163,8 @@ The main binary, `./ratproxy`, takes the following arguments:
                   content randomization.
 
                   When dealing with such services, ratproxy might be instructed to 
-                  acquire three, not two, samples for page comparison for some checks 
-                  checks, to further minimize the number of false positives.
+                  acquire three, not two, samples for page comparison for some checks,
+                  to further minimize the number of false positives.
 
   -e            - enables pedantic caching header validation. Security problems may arise
                   when documents clearly not meant to be cached are served in a way that 
@@ -240,7 +240,10 @@ The main binary, `./ratproxy`, takes the following arguments:
                   these will be tagged for manual inspection.
 
   -m            - enables logging of "active" content referenced across domain boundaries
-                  to detect patterns such as remote image inclusion or remote linking.
+                  to detect patterns such as remote image inclusion or remote linking
+                  (note that logging of remote script or stylesheet inclusion is enabled 
+                  at all times).
+
                   This option has an effect only when a proper set of domains is 
                   specified with -d command-line parameter - and is recommended for sites
                   where a careful control of cross-domain trust relationships needs to
