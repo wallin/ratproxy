@@ -76,7 +76,7 @@ Key low-level check groups implemented by _ratproxy_ are:
 
   In active testing mode, the proxy will go one step further and attempt a single-shot verification of XSS filtering mechanisms, carefully tweaking only these request parameters that truly need to be tested at the time (and carefully preserving XSRF tokens, and more).
 
-  * *HTTP and META redirectors.* Redirectors, unless properly locked down, may be abused by phishers, which is sometimes perceived as undesirable. Furthermore, in extreme cases, poorly implemented redirectors may open up cross-site scripting vectors in less common browsers.
+  * *HTTP and META redirectors.* Redirectors, unless properly locked down, may be used without owner's content, which in some contexts might be considered undesirable. Furthermore, in extreme cases, poorly implemented redirectors may open up cross-site scripting vectors in less common browsers.
 
   _Ratproxy_ will take note of any redirectors observed for further testing.
 
@@ -205,7 +205,7 @@ The main binary, `./ratproxy`, takes the following arguments:
                   authentication only, based on the assumption that such images are most 
                   likely to be user-controlled.
 
-                  This option should be enabled when auditing social services that permit 
+                  This option should be enabled when auditing applications that permit 
                   picture uploads and sharing; otherwise, it may just generate noise.
 
   -f            - with this option enabled, the proxy will log all Flash applications 
@@ -277,7 +277,7 @@ The main binary, `./ratproxy`, takes the following arguments:
                   meant to use HTTPS and HTTPS only.
 
   -a            - tells ratproxy to indiscriminately log all visited URLs. Useful for
-                  ensuring a 100% accountability for the testing process.
+                  assessing the coverage achieved.
 }}}
 
 In practice, for low verbosity reporting that looks for high-probability issues only, a good starting point is:
