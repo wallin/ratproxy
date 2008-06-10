@@ -80,7 +80,9 @@ Key low-level check groups implemented by _ratproxy_ are:
 
   _Ratproxy_ will take note of any redirectors observed for further testing.
 
-  * *A broad set of other security problems*, such as alarming Javascript, OGNL, Java, SQL, file inclusion patterns, directory indexes, server errors, and so forth. _Ratproxy_    will preselect particularly interesting candidates for further testing.
+  * *A broad set of other security problems*, such as alarming Javascript, OGNL, Java, SQL statements, file inclusion patterns, directory indexes, server errors, and so forth. _Ratproxy_ will preselect particularly interesting candidates for further testing.
+
+  Although in the initial beta, not all web technologies may necessarily be analyzed to greatest extent possible, we intend to actively improve the tool based on your feedback.
 
   * Several additional, customizable classes of requests and responses useful in understanding the general security model of the application (file upload forms, `POST` requests, cookie setters, etc).
 
