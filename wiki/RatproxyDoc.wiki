@@ -96,7 +96,7 @@ Please keep in mind that the tool is still in beta, and you may run into problem
 
 ==How to interpret and address the issues reported?==
 
-Many of the problems reported by _ratproxy_ are self-explanatory and straightforward to address. Some challenges, however, might require a more in-depth analysis and fixes.
+Many of the problems reported by _ratproxy_ are self-explanatory and straightforward to address. Some challenges, however, might require a more in-depth analysis to fully qualify and resolve.
 
 There are several organizations that put a considerable effort into documenting and explaining these problems, and advising the public on how to address them. We encourage you to refer to the materials published by [http://www.owasp.org/ OWASP] and [http://www.webappsec.org/projects/articles/ Web Application Security Consortium], amongst others:
 
