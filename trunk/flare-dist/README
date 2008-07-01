@@ -1,0 +1,16 @@
+This is a Linux binary of Flare ActionScript decompiler. If instructed
+to do so, ratproxy will invoke this tool to decompile SWF files on the
+fly.
+
+If you intend to run ratroxy on a different operating system, you may 
+need use the following binaries instead:
+
+  MacOS X: http://www.nowrap.de/download/flare06mac.tgz
+  Windows: http://www.nowrap.de/download/flare06doswin.zip
+
+Unfortunately, there are no versions of Flare for *BSD or the like (but
+binary emulation of Linux or Windows may come to the rescue). If Flare 
+is not found, ratproxy will simply not perform Flash analysis.
+
+Note that this is a closed source application; please exercise common
+sense, and do not use it on potentially malicious, external content.

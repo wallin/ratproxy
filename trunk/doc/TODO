@@ -1,0 +1,55 @@
+-----
+TODO:
+-----
+
+  - Javascript formatter / prettyprinter: this would make it easier to inspect
+    "compiled" Javascript.
+
+  - Multiple report-related improvements:
+
+      - Proper CSS classes instead of current inline mess,
+      - Add better issue filtering capabilities based on host / path,
+      - Make it possible to edit target URLs in forms.
+
+  - Machine-readable output improvements: use a better output format with less
+    escaping necessary. Move most of escaping to ratproxy-report.sh instead.
+
+  - Better caching header analysis: current Expires/Date parsing logic is
+    very simplistic and may trigger false positives in some scenarios.
+
+  - Context-aware XSS testing: make XSS injection checks aware of the context, so
+    that only a small snippet of code would need to be injected (minimizes the risk
+    of query rejection).
+
+  - Better XSRF token checks: validate rudimentary alphabet distribution properties
+    with better resolution; "0aBaBaBaBaB" should not qualify as a valid token.
+
+  - Unified Javascript analyzer: simplified JS related checks are currently 
+    dispersed through the code. This should be moved to a separate component and 
+    much improved.
+
+  - Flash security lint: decompiled SWFs could be automatically surveyed for 
+    problems.
+
+  - Code refactoring and improvements: modularize check logic, add configuration
+    file parsing in place of config.h, etc.
+
+--------------------
+Check-specific TODO:
+--------------------
+
+  - Cookie injection: look for query payloads copied over to cookies.
+
+  - Data leakage: look for non-FQDN domain names, private IPs, and file://
+    references when a "production service" option is supplied.
+
+  - Common exception trace pattern detection.
+
+  - Enumeration of server types and versions.
+
+  - Checks for revealing or offensive comments, file names, etc.
+
+  - Perhaps a brute-force checker for UTF-8 character consumption, SQL
+    injection checks.
+
+  - Referer-based XSS: devise a scheme to check for this reliably.
