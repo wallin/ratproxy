@@ -1,0 +1,84 @@
+~All visited URLs~Complete list of all visited URLs, regardless of their apparent significance to the security of tested application.
+
+~HTTP errors~Requests that unexpectedly produced error responses. Some entries on this list may warrant further investigation as indicators of security issues or programming errors.
+
+~MIME type missing~Pages with no <font color=teal>Content-Type</font> header present. Browser-side content sniffing may be triggered in such a scenario, and potentially lead to cross-site scripting if any part of the file is user-controlled.
+
+~MIME type set to text/plain~Pages with <font color=teal>Content-Type</font> header set to text/plain. Content sniffing in Internet Explorer may be triggered in such a scenario, and potentially lead to cross-site scripting if any part of the document is user-controlled.
+
+~MIME type mismatch on renderable file~Text documents that seem to have a poorly chosen <font color=teal>Content-Type</font> value. Even slight mismatches may trigger content sniffing in Internet Explorer, and potentially lead to cross-site scripting if any part of the file is user-controlled.
+
+~MIME type mismatch on image file~Images that seem to have incorrect MIME types set. Even slight mismatch may trigger content-sniffing in Internet Explorer, and lead to cross-site scripting if the image is user-supplied.
+
+~Generic MIME type used~Files served with <font color=teal>Content-Type: application/octet-stream</font>. This is correct for raw binary data resources, but may lead to cross-site scripting if any part of the file is user-supplied.
+
+~MIME type mismatch on binary file~Binary files with poorly chosen <font color=teal>Content-Type</font> data. Certain mismatches may trigger content sniffing, and potentially lead to cross-site scripting if the file is user-supplied.
+
+~Dynamic Javascript for direct inclusion~Server-generated, authenticated Javascript apparently structured for <font color=teal>&lt;SCRIPT SRC=...&gt;</font> or <font color=teal>eval(...)</font> consumption. If the code reveals any sensitive user data and lacks XSRF defenses, privacy breaches may occur.
+
+~Bad or no charset declared for renderable file~Text documents with missing, mistyped, or obscure character sets (see <font color=teal>config.h</font>). For some values, UTF-7 and other types of character set sniffing in Internet Explorer may occur if any part of the file is user-controlled.
+
+~Ambiguous HTTP content headers~Files with duplicate or contradictory HTTP headers or HTTP-EQUIV fields. In some cases, this may confuse browsers and produce unexpected content processing results.
+
+~Misstated Content-Length~Resources with <font color=teal>Content-Length</font> declared by the server seemingly different from the amount of data actually received. In some cases, this may lead to HTTP response splitting attacks.
+
+~Inline PNG image~PNG images with no <font color=teal>Content-Disposition: attachment</font> header. In Internet Explorer 6, this may trigger content sniffing and potentially lead to cross-site scripting flaws if the image is user-supplied.
+
+~GET query with no XSRF protection~Parameter-accepting, authenticated GET requests that lack security tokens. Most GET requests do not change application state, but ones that do might be vulnerable to cross-site request forgery attacks.
+
+~POST query with no XSRF protection~Parameter-accepting POST requests that lack security tokens. Some POST requests change application state, and may be vulnerable to cross-site request forgety attacks.
+
+~HTTP redirector~Requests that seem to redirect to query-specified URLs via HTTP headers. Cross-site scripting attacks in less common browsers, as well as undesirable phishing-related abuse, might be possible if URLs are not properly validated.
+
+~HTML META redirector~Requests that seem to redirect to user-specified URLs via META HTTP-EQUIV directives. Cross-site scripting attacks, as well as undesirable phishing-related abuse, might be possible if URLs are not properly validated.
+
+~Referer may leak session tokens~Outgoing requests to non-audited sites that include <font color=teal>Referer</font> headers with non-trivial identifiers. In some cases, this may reveal user- or application-sensitive data to third parties.
+
+~Direct markup echoed back~Pages where HTML or XML markup appears to be copied over from query parameters to a page. This is often a sign of XSS or XML injection flaws, unless proper sanitization takes place.
+
+~XSS candidates~Pages where non-trivial query parameters appear to be echoed back on the page. Most or all of these resources might be safe - but they constitute prime candidates for further manual or automated XSS vulnerability testing.
+
+~Request splitting candidates~Pages where non-trivial query parameters appear to be echoed back in HTTP headers. This does not imply a vulnerability, but these resources constitute high-risk candidates for further response splitting testing.
+
+~XSS candidates (script)~Pages where non-trivial query parameters appear to be echoed back inside a script. This does not imply a vulnerability, but these resources are prime candidates for further code injection testing.
+
+~SQL code in query parameters~Pages where SQL code appears to be accepted in query parameters, and is not echoed back. Unless the query was explicitly entered by the user, this might be a sign of potential SQL injection flaws.
+
+~Javascript code echoed back~Pages where what appears to be Javascript code is copied over from query parameters to a page. Unless code snippets were explicitly entered by the user, this might be a sign of code injection flaws.
+
+~Java method call in query parameters~Pages where Java-style class paths seem to appear directly in query parameters. Unless these paths were explicitly entered by the user, this might be a sign of certain vulnerabilities.
+
+~File name in query parameters~Pages where values resembling file names are passed in query parameters, and not echoed back. Although this does not imply a vulnerability, these locations are prime candidates for further directory traversal testing. Note that some host names in parameters may trigger false positives here.
+
+~File path in query parameters~Pages where values resembling file paths are passed in query parameters, and not echoed back. This is not necessarily a vulnerability, but constitutes a high-risk target for directory traversal testing.
+
+~All Flash applications~Full list of Flash documents detected on the server. Many Flash files produced with automated tools are vulnerable to cross-site scripting flaws, and should be inspected for these patterns.
+
+~File upload forms~Forms that accept file inputs. Although this is not a vulnerability, these resources should be carefully inspected for request forgery problems, filename handling issues, and related issues.
+
+~Directory indexes~Pages that contain patterns consistent with default directory listings. These resources should be investigated for possible disclosure of sensitive data.
+
+~Risky Javascript code~Pages that seem to contain potentially dangerous or discouraged Javascript statements. These statements are particularly likely to open up security vulnerabilities on the page, and as such, the code should be carefully analyzed.
+
+~External code inclusion~Pages that seem to include scripts or stylesheets from external domains. If these domains are not trusted or are susceptible to compromise, this behavior may render the application vulnerable to attacks.
+
+~Cross-domain POST requests~Pages that appear to receive cross-domain POST requests. This is commonly used for mechanism such as single sign-on. Since such schemes may enjoy only a limited cookie protection, the functionality should be surveyed for request forgery flaws.
+
+~Markup in dynamic Javascript~Code that resembles JSON responses or other dynamic code snippets, and quotes non-escaped HTML. If this rendered markup is attacker-controlled, content sniffing in Internet Explorer may potentially kick in and trigger XSS flaws, regardless of MIME type used.
+
+~All POST requests~Complete list of all POST forms encountered, regardless of their apparent significance to the security of tested application.
+
+~Cookie issuer with no XSRF protection~Pages that accept parameters and issue new HTTP cookies, but miss security tokens. Session fixation or other attacks might be possible if the cookie stores important, query-dependent user data.
+
+~All cookie setting URLs~Complete list of all cookie-issuing URLs encountered, regardless of their apparent significance to the security of tested application.
+
+~Bad caching headers~Pages that set cookies or require authentication, but have HTTP headers that may, in some scenarios, lead to proxy-level document caching. Depending on runtime settings, this may also include subtle HTTP/1.1 and HTTP/1.0 intent mismatches (such as <font color=teal>Cache-Control: private</font> with no <font color=teal>Expires</font> header).
+
+~Suspicious parameter passing scheme~Parameter names look like OGNL expressions, PHP global variables, or other mechanisms to directly affect the state of server-side code. Some of such schemes could lead to data injection unless proper security measures are in place, and should be carefully evaluated.
+
+~Confirmed XSS vectors~Pages where query parameters are echoed back on a renderable page, and no proper escaping or charset declarations seems to take place, as verified by active testing.
+
+~References to external active content~Active content types (such as HTML, Flash, or Java) that seems to be included from or referenced in third-party domains. These resources should be further evaluated to determine their purpose and the impact on site security, if any.
+
+~Potential mixed content~Runtime settings indicate that the application should use HTTPS exclusively, but HTTP-based requests in the tested domain were observed. These may expose the application to man-in-the-middle attacks, particularly if the content is active (scripts, HTML, stylesheets, etc).
+
