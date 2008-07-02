@@ -1,5 +1,5 @@
-#summary Project documentation
 #labels Featured
+ #summary Project documentation
 
 =ratproxy - passive web application security assessment tool=
 
@@ -23,7 +23,8 @@ _Ratproxy_ is a semi-automated, largely passive web application security audit t
 
 ==Is it worth trying out?==
 
-There are numerous alternative proxy tools meant to aid security auditors - most notably [http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project WebScarab], [http://www.parosproxy.org/ Paros], [http://portswigger.net/proxy/ Burp], and [http://www.isecpartners.com/proxmon.html ProxMon]. Stick with whatever suits your needs, as long as you get the data you need in the format you like.
+There are numerous alternative proxy tools meant to aid security auditors - most notably [http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project WebScarab], [http://www.parosproxy.org/ Paros], [http://portswigger.net/proxy/ Burp], [http://www.isecpartners.com/proxmon.html ProxMon], and 
+[http://www.owasp.org/index.php/Category:OWASP_Pantera_Web_Assessment_Studio_Project Pantera]. Stick with whatever suits your needs, as long as you get the data you need in the format you like.
 
 That said, _ratproxy_ is there for a reason. It is designed specifically to deliver concise reports that focus on prioritized issues of clear relevance to contemporary _web 2.0_ applications, and to do so in a hands-off, repeatable manner. It should not overwhelm you with raw HTTP traffic dumps, and it goes far beyond simply providing a framework to tamper with the application by hand.
 
