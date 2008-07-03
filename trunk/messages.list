@@ -26,7 +26,7 @@
 
 ~GET query with no XSRF protection~Parameter-accepting, authenticated GET requests that lack security tokens. Most GET requests do not change application state, but ones that do might be vulnerable to cross-site request forgery attacks.
 
-~POST query with no XSRF protection~Parameter-accepting POST requests that lack security tokens. Some POST requests change application state, and may be vulnerable to cross-site request forgety attacks.
+~POST query with no XSRF protection~Parameter-accepting POST requests that lack security tokens. Some POST requests change application state, and may be vulnerable to cross-site request forgery attacks.
 
 ~HTTP redirector~Requests that seem to redirect to query-specified URLs via HTTP headers. Cross-site scripting attacks in less common browsers, as well as undesirable phishing-related abuse, might be possible if URLs are not properly validated.
 

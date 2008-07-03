@@ -26,7 +26,7 @@
 
 #include "types.h"
 
-#define VERSION		"1.50-beta"
+#define VERSION		"1.51-beta"
 
 /* Maximum request / response header line length (HTTP traffic
    that exceeds this limit will be rejected). */
