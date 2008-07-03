@@ -1586,7 +1586,7 @@ skip_tests:
 static void listen_loop(void) {
   _s32 lsock, csock, on = 1;
   _u32 x;
-  struct sockaddr_in saddr;
+  static struct sockaddr_in saddr;
   
   lsock=socket(AF_INET, SOCK_STREAM, 0);
   if (lsock < 0) pfatal("cannot create socket");

@@ -1,0 +1,21 @@
+Solaris is not officially supported, as I have no usable test system; one of 
+ratproxy users contributed the following workaround that may work, however:
+
+-- snip! --
+
+Changes needed to Makefile to compile on Solaris10.
+
+23,24c23,25
+< CFLAGS         = -Wall -O3 -Wno-pointer-sign -D_GNU_SOURCE
+< LDFLAGS  = -lcrypto -lssl
+---
+> #CFLAGS        = -Wall -O3 -Wno-pointer-sign -D_GNU_SOURCE
+> CFLAGS         = -Wall -O3  -D_GNU_SOURCE
+> LDFLAGS  = -lcrypto -lssl -lsocket -lnsl
+
+You will need GCC.
+You must also have openssl built and resolvable via 
+ENV variable LD_LIBRARY_PATH 
+To compile type in "make CC=gcc"
+
+-- snip! --
